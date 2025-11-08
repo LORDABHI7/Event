@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Event Scheduler — Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-2.css">
+</head>
+<body>
+  <!-- animated gradient background -->
+  <div class="bg-animated"></div>
+
+  <!-- Notification sound -->
+  <audio id="notifSound" src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA..." preload="auto"></audio>
+
+  <!-- In-page toast fallback -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Auth -->
+  <main class="stage">
+    <section class="card auth-card" id="authContainer">
+      <div class="auth-inner">
+        <h2 class="title">Welcome</h2>
+        <p class="muted">Login to manage your events</p>
+
+        <input id="loginEmail" type="email" placeholder="Email">
+        <input id="loginPassword" type="password" placeholder="Password">
+        <div class="row">
+          <button id="loginBtn" class="btn primary">Login</button>
+          <button id="showSignup" class="btn ghost">Sign Up</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card auth-card hidden" id="signupBox">
+      <div class="auth-inner">
+        <h2 class="title">Create account</h2>
+        <p class="muted">Join and organize your time</p>
+
+        <input id="signupName" type="text" placeholder="Full name">
+        <input id="signupEmail" type="email" placeholder="Email">
+        <input id="signupPassword" type="password" placeholder="Password">
+        <input id="signupConfirmPassword" type="password" placeholder="Confirm password">
+
+        <div class="row">
+          <button id="signupBtn" class="btn primary">Create</button>
+          <button id="showLogin" class="btn ghost">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scheduler -->
+    <section class="card scheduler-card hidden" id="eventSchedulerContainer">
+      <header class="sched-head">
+        <div>
+          <h1 class="big-title">Event Scheduler</h1>
+          <p class="muted small">Organize — be on time — stay calm</p>
+        </div>
+        <div class="right-actions">
+          <button id="requestNotif" class="btn link">Enable notifications</button>
+          <button id="logoutBtn" class="btn danger">Logout</button>
+        </div>
+      </header>
+
+      <div class="form-grid">
+        <input id="eventTitle" type="text" placeholder="Event title (e.g., Standup meeting)">
+        <input id="eventDate" type="date">
+
+        <!-- custom time picker -->
+        <div class="time-picker">
+          <select id="hourSelect" aria-label="Hour"></select>
+          <span class="sep">:</span>
+          <select id="minuteSelect" aria-label="Minute"></select>
+          <select id="ampmSelect" aria-label="AM/PM">
+            <option>AM</option>
+            <option>PM</option>
+          </select>
+        </div>
+
+        <button id="addEventBtn" class="btn primary wide">Add Event</button>
+      </div>
+
+      <section class="events">
+        <h2 class="section-title">Upcoming Events</h2>
+        <ul id="events" class="event-list"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="script-2.js"></script>
+</body>
+</html>
